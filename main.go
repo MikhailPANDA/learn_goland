@@ -7,5 +7,5 @@ func main() {
 }
 
 func hi() {
-	fmt.Println("Hi")
+	fmt.Println("Some message")
 }

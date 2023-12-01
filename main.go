@@ -35,6 +35,20 @@ func conv(l string, r string) (int, int) {
 	return a, b
 }
 
+// to do!
+//  exponents(!)
+//  скобки))
+//  %
+//  битовый оператор (што ето...)
+
+//  Ошибки:
+//  передано менее трех аргументов
+//  нет операндов в выражении
+//  нет чисел в выражении
+//  некорректная последовательность операндов "---2", "2+2-"
+
+//  прим: кол-во сегментов всегда должно быть 3+ и нечётным
+
 func Calculator(expr string) {
 	exprSlice := separator(expr)
 
@@ -89,7 +103,7 @@ func separator(expr string) []string {
 	segmtSt := 0
 
 	if expr[0] == ' ' {
-		fmt.Println("Unknow element")
+		fmt.Println("Unknow element on first position")
 		os.Exit(1)
 	}
 	for i := 1; i < len(expr); i++ {

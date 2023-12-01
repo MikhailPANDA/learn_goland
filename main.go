@@ -22,7 +22,7 @@ func log(exprSlice []string) {
 	fmt.Println()
 }
 
-func conv(l string, r string) (int, int) {
+func convAtoi(l string, r string) (int, int) {
 	a, err := strconv.Atoi(l)
 	if err != nil {
 		print(err)
@@ -65,7 +65,7 @@ func multAndDiv(exprSlice []string) []string {
 		var expSlCopyR []string
 		switch exprSlice[i] {
 		case "*":
-			a, b = conv(exprSlice[i-1], exprSlice[i+1])
+			a, b = convAtoi(exprSlice[i-1], exprSlice[i+1])
 			res = a * b
 			expSlCopyR = exprSlice[i+1:]
 			exprSlice = exprSlice[:i-1]
@@ -73,6 +73,8 @@ func multAndDiv(exprSlice []string) []string {
 			exprSlice[i-1] = strconv.Itoa(res)
 			i -= 2
 		case "/":
+
+			res = a * b
 		}
 	}
 	return exprSlice
@@ -83,13 +85,13 @@ func sumAndSub(exprSlice []string) []string {
 		var res, a, b int
 		switch exprSlice[i] {
 		case "+":
-			a, b = conv(exprSlice[i-1], exprSlice[i+1])
+			a, b = convAtoi(exprSlice[i-1], exprSlice[i+1])
 			res = a + b
 			exprSlice = exprSlice[i+1:]
 			exprSlice[i-1] = strconv.Itoa(res)
 			i -= 2
 		case "-":
-			a, b = conv(exprSlice[i-1], exprSlice[i+1])
+			a, b = convAtoi(exprSlice[i-1], exprSlice[i+1])
 			res = a - b
 			exprSlice = exprSlice[i+1:]
 			exprSlice[i-1] = strconv.Itoa(res)

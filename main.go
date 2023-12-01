@@ -88,6 +88,10 @@ func separator(expr string) []string {
 	exprSlice := make([]string, 0, 15)
 	segmtSt := 0
 
+	if expr[0] == ' ' {
+		fmt.Println("Unknow element")
+		os.Exit(1)
+	}
 	for i := 1; i < len(expr); i++ {
 		if expr[i] == '*' ||
 			expr[i] == '/' ||

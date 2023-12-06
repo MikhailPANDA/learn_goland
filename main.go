@@ -41,7 +41,6 @@ func main() {
 func Calculator(expr string) {
 	expr = checksExpr(expr)
 	exprSlice := separator(parseParntheses(expr))
-
 	if len(exprSlice) == 0 {
 		fmt.Println(expr)
 		return
@@ -49,7 +48,6 @@ func Calculator(expr string) {
 
 	exprSlice = multAndDiv(exprSlice)
 	exprSlice = sumAndSub(exprSlice)
-
 	fmt.Println(exprSlice[0])
 }
 
@@ -59,7 +57,6 @@ func checksExpr(expr string) string {
 	for _, elem := range exprSl {
 		exprUpd += elem
 	}
-
 	if exprUpd[0] == '.' ||
 		exprUpd[0] == ',' ||
 		exprUpd[0] == '*' ||

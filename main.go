@@ -101,7 +101,7 @@ func multAndDiv(exprSlice []string) []string {
 		switch exprSlice[i] {
 		case "*":
 			a, b := cnvToFloat(exprSlice[i-1], exprSlice[i+1])
-			expSlCopyR = exprSlice[i+2:]                           // копируем часть слайса, исключая все пройденные элементы, текущий и следующий
+			expSlCopyR = exprSlice[i+2:]                           // копируем часть слайса, исключая все пройденные элементы, а также текущий и следующий
 			exprSlice = exprSlice[:i]                              // перезаписываем целый слайс, только неполной левой его частью (исключая текущий и предыдущий)
 			exprSlice[i-1] = strconv.FormatFloat(a*b, 'g', -1, 64) // перезаписываем использованное число результатом
 			exprSlice = append(exprSlice, expSlCopyR[:]...)        // добавляем правую часть, таким образом, оригинальный срез потерял 2 элемента

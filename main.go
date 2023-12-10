@@ -24,6 +24,7 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"os"
 	"strconv"
@@ -37,9 +38,9 @@ func main() {
 	}
 
 	if 1 == len(os.Args) {
-		for {
-			fmt.Scan(&expr)
-			Calculator(expr)
+		sc := bufio.NewScanner(os.Stdin)
+		for sc.Scan() {
+			Calculator(sc.Text())
 		}
 	} else {
 		Calculator(expr)

@@ -1,12 +1,27 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
 
 func main() {
-	hi()
+	// defer logTime()
+	getFile()
+
 }
 
-func hi() {
-	my_log_number := "4501020"
-	fmt.Println("Other message:", my_log_number)
+func getFile() {
+	f, _ := os.Open("in2.txt")
+	defer f.Close()
+
+	s := bufio.NewScanner(f)
+	for s.Scan() {
+		fmt.Println(s.Text())
+	}
+}
+
+func logTime() {
+
 }

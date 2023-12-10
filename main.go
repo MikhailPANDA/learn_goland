@@ -35,7 +35,15 @@ func main() {
 	for i := 1; i < len(os.Args); i++ {
 		expr = expr + os.Args[i]
 	}
-	Calculator(expr)
+
+	if 1 == len(os.Args) {
+		for {
+			fmt.Scan(&expr)
+			Calculator(expr)
+		}
+	} else {
+		Calculator(expr)
+	}
 }
 
 func Calculator(expr string) {

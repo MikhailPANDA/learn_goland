@@ -150,7 +150,7 @@ func sumAndSub(exprSlice []string) []string {
 }
 func separator(expr string) []string {
 	exprSlice := make([]string, 0, 15)
-	segmtSt, countNum, countOper := 0, 0, 0
+	segmtSt := 0
 	for i := 1; i < len(expr); i++ {
 		if expr[i] == '*' ||
 			expr[i] == '/' ||
@@ -158,20 +158,13 @@ func separator(expr string) []string {
 			expr[i] == '-' {
 			exprSlice = append(exprSlice, expr[segmtSt:i], string(expr[i]))
 			segmtSt = i + 1
-			countOper++
-			countNum++
 			if i+2 < len(expr) { // если это ещё не предпоследняя итерация - пропустить возможный знак отриц. числа
 				i++
 			}
 		}
 		if i+2 == len(expr) { // если это последняя итерация - добавить последнее значение
 			exprSlice = append(exprSlice, expr[segmtSt:i+2])
-			countNum++
 		}
-	}
-	if countOper == 0 {
-		fmt.Println("Incorrect number of operators received")
-		os.Exit(1)
 	}
 	return exprSlice
 }

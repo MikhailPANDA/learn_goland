@@ -69,9 +69,8 @@ func checksExpr(expr string) string {
 	if exprUpd[0] == '.' ||
 		exprUpd[0] == ',' ||
 		exprUpd[0] == '*' ||
-		exprUpd[0] == '/' ||
-		exprUpd[0] == '+' {
-		fmt.Println("Incorrect element on first position", exprUpd[0])
+		exprUpd[0] == '/' {
+		fmt.Println("Incorrect element on first position", string(exprUpd[0]))
 		os.Exit(1)
 	}
 	return exprUpd

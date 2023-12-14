@@ -169,10 +169,7 @@ func separator(expr string) []string {
 			countNum++
 		}
 	}
-	if countNum == 0 {
-		fmt.Println("Incorrect number of numbers received")
-		os.Exit(1)
-	} else if countOper == 0 {
+	if countOper == 0 {
 		fmt.Println("Incorrect number of operators received")
 		os.Exit(1)
 	}

@@ -150,6 +150,12 @@ func sumAndSub(exprSlice []string) []string {
 func separator(expr string) []string {
 	exprSlice := make([]string, 0, 15)
 	segmtSt := 0
+
+	if len(expr) < 3 {
+		exprSlice = append(exprSlice, expr)
+		return exprSlice
+	}
+
 	for i := 1; i < len(expr); i++ {
 		if expr[i] == '*' ||
 			expr[i] == '/' ||
